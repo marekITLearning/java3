@@ -1,10 +1,9 @@
 package sk.itlearning.java3.n.csv.model;
 
-import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import sk.itlearning.java3.n.csv.biz.BytyCsvImportBean;
+import sk.itlearning.java3.n.csv.biz.DomCsvImportBean;
 import sk.itlearning.java3.n.csv.biz.FirmaCsvImportBean;
 import sk.itlearning.java3.n.csv.core.CsvMapping;
 import sk.itlearning.java3.n.csv.core.CsvReaderParams;
@@ -16,7 +15,7 @@ public class Main {
 		CsvReaderParams params = new CsvReaderParams();
 		params.setBatchSize(10);
 		params.setCharset(StandardCharsets.ISO_8859_1);
-		params.setCsvFile(new File("C:\\devel\\firmy.csv"));
+		params.setCsvFile(Main.class.getResourceAsStream("firmy.csv"));
 		params.setCsvSeparator(';');
 		params.setSkipLines(1);
 		
@@ -35,7 +34,7 @@ public class Main {
 		params = new CsvReaderParams();
 		params.setBatchSize(10);
 		params.setCharset(StandardCharsets.ISO_8859_1);
-		params.setCsvFile(new File("C:\\devel\\domy.csv"));
+		params.setCsvFile(Main.class.getResourceAsStream("domy.csv"));
 		params.setCsvSeparator(';');
 		params.setSkipLines(1);
 		
@@ -43,11 +42,11 @@ public class Main {
 		params.getMappingList().add(new CsvMapping().setCsvIndex(1).setFieldName("cislo"));
 		params.getMappingList().add(new CsvMapping().setCsvIndex(2).setFieldName("typ"));
 		
-		BytyCsvImportBean bytCsvImportBean = new BytyCsvImportBean();
+		DomCsvImportBean bytCsvImportBean = new DomCsvImportBean();
 		
-		List<Byt> byty = bytCsvImportBean.getNextBatch(params);
+		List<Dom> byty = bytCsvImportBean.getNextBatch(params);
 		
-		for (Byt f : byty) {
+		for (Dom f : byty) {
 			System.out.println(f);
 		}
 		

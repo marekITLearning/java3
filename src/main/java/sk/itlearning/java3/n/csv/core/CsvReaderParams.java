@@ -1,6 +1,7 @@
 package sk.itlearning.java3.n.csv.core;
 
 import java.io.File;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class CsvReaderParams {
 
-	private File csvFile;
+	private InputStream csvFile;
 
 	private Character csvSeparator = ';';
 
@@ -20,14 +21,6 @@ public class CsvReaderParams {
 	private List<CsvMapping> mappingList = new ArrayList<>();
 
 	private int batchSize = 100;
-
-	public File getCsvFile() {
-		return csvFile;
-	}
-
-	public void setCsvFile(File csvFile) {
-		this.csvFile = csvFile;
-	}
 
 	public Character getCsvSeparator() {
 		return csvSeparator;
@@ -63,6 +56,14 @@ public class CsvReaderParams {
 
 	public void setBatchSize(int batchSize) {
 		this.batchSize = batchSize;
+	}
+
+	public InputStream getCsvFile() {
+		return csvFile;
+	}
+
+	public void setCsvFile(InputStream csvFile) {
+		this.csvFile = csvFile;
 	}
 
 }

@@ -1,8 +1,8 @@
 package sk.itlearning.java3.n.csv.core;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -27,7 +27,7 @@ public class CsvReader<B, E> {
 
 	private Map<Integer, CsvMapping> mapping = new HashMap<>();
 
-	private FileInputStream fileInputStream;
+	private InputStream inputStream;
 
 	private InputStreamReader inputStramReader;
 
@@ -36,8 +36,8 @@ public class CsvReader<B, E> {
 	private CsvReaderParams params;
 
 	public CsvReader(Class<B> beanClass, CsvReaderParams params) throws FileNotFoundException {
-		fileInputStream = new FileInputStream(params.getCsvFile());
-		inputStramReader = new InputStreamReader(fileInputStream, params.getCharset());
+		inputStream = params.getCsvFile();
+		inputStramReader = new InputStreamReader(inputStream, params.getCharset());
 		this.beanClass = beanClass;
 		this.params = params;
 		csvReader = new CSVReaderBuilder(inputStramReader).withSkipLines(params.getSkipLines())
@@ -68,7 +68,7 @@ public class CsvReader<B, E> {
 			try {
 				csvReader.close();
 				inputStramReader.close();
-				fileInputStream.close();
+				inputStream.close();
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}

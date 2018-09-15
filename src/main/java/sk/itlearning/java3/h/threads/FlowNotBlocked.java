@@ -7,7 +7,6 @@ import java.util.Date;
 public class FlowNotBlocked {
 
 	private static class SpocitajSubory implements Runnable {
-
 		final Date start = new Date();
 		@Override
 		public void run() {
@@ -17,18 +16,19 @@ public class FlowNotBlocked {
 			long seconds = (stop1.getTime() - start.getTime()) / 1000;
 			System.out.println("Pocet suborov: " + p1.nrFiles + " vyhladane za (sekund): " + seconds);
 		}
-		
 	}
 	
 	public static void main(String[] args) throws IOException {
 
 		final Date start = new Date();
-
+		
 		new Thread(new SpocitajSubory()).start();
 		new Thread(new SpocitajSubory()).start();
 		new Thread(new SpocitajSubory()).start();
 		new Thread(new SpocitajSubory()).start();
 		new Thread(new SpocitajSubory()).start();
+		
+		
 		
 	}
 

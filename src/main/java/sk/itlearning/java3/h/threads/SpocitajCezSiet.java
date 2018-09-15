@@ -13,7 +13,7 @@ public class SpocitajCezSiet {
 
 		LocalDateTime start = LocalDateTime.now();
 
-		spocitajSubory(new File("P:"));
+		spocitajSubory(new File("L:"));
 		
 		while(Thread.activeCount() > 1);
 

@@ -13,7 +13,6 @@ public class ThreadCom {
 		final Pocty p1 = new Pocty();
 		
 		final ThreadCom i1 = new ThreadCom();
-		
 		Thread t1 = new Thread() {
 			public void run() {
 				i1.spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p1);
@@ -24,15 +23,15 @@ public class ThreadCom {
 		};
 		t1.start();
 
+		
 		try {
 			synchronized (i1) {
-				i1.wait();
+				i1.wait();			
 			}
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-		
+		}				
+
 
 		ThreadCom i2 = new ThreadCom();
 		Pocty p2 = new Pocty();
@@ -57,7 +56,7 @@ public class ThreadCom {
 			p.nrFiles++;
 			if (p.nrFiles == 200) {
 				synchronized (this) {
-					this.notifyAll();						
+					this.notifyAll();					
 				}
 			}
 			return; // subory mozu byt vyhladavane len v adresari
