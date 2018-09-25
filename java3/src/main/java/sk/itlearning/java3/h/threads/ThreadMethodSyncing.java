@@ -1,33 +1,28 @@
 package sk.itlearning.java3.h.threads;
 
-import java.math.BigDecimal;
-
 public class ThreadMethodSyncing {
 
 	static class Counter {
-	    private BigDecimal value = new BigDecimal(0);
+	    private int value = 0;
 
 	    public synchronized void increment() {
-	    	value = value.add(new BigDecimal(1));
+	    	value++;
 	    }
 
 	    public synchronized void decrement() {
-	    	value = value.add(new BigDecimal(-1));
+	    	value--;
 	    }
-
 	}
 
 	public static void main(String[] args) {
 
-		for (int i = 0; i < 100; i++) {
-			
-		final BigDecimal c = new BigDecimal(0);
+		Counter c = new Counter();
 		
 		Runnable r1 = new Runnable() {
 			@Override
 			public void run() {
 				for (int i = 0; i < 100_000; i++) {
-					c.add(new BigDecimal(1));
+					c.increment();
 				}
 			}
 		};
@@ -36,21 +31,15 @@ public class ThreadMethodSyncing {
 			@Override
 			public void run() {
 				for (int i = 0; i < 100_001; i++) {
-					c.add(new BigDecimal(-1));
+					c.decrement();
 				}
 			}
 		};
 
 		new Thread(r1).start();
 		new Thread(r2).start();
-
-		while(Thread.activeCount() > 1){};		
 		
-		if (c.intValue() != 0) {
-			System.out.println(c.intValue());
-		}
-		
-		}
+		System.out.println(c.value);
 	}
 
 }
