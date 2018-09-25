@@ -19,17 +19,11 @@ public class FlowNotBlocked {
 	}
 	
 	public static void main(String[] args) throws IOException {
-
-		final Date start = new Date();
-		
 		new Thread(new SpocitajSubory()).start();
 		new Thread(new SpocitajSubory()).start();
 		new Thread(new SpocitajSubory()).start();
 		new Thread(new SpocitajSubory()).start();
 		new Thread(new SpocitajSubory()).start();
-		
-		
-		
 	}
 
 	private static class Pocty {

@@ -6,13 +6,13 @@ import java.util.List;
 
 public class G7_SupressRawtype {
 
+	@SuppressWarnings({ "unused", "rawtypes", "unchecked" })
 	public static void main(String[] args) {
 
 		Muz[] muzi = new Muz[]{new Muz(), new Muz()};
 		Zena[] zeny = new Zena[]{new Zena()};
 //		List<Muz> listMuzi = new ArrayList<Muz>(Arrays.asList(muzi));
 		// List listMuzi = new ArrayList(Arrays.asList(muzi));
-		@SuppressWarnings("rawtypes")
 		List listZeny = new ArrayList(Arrays.asList(zeny));
 		addClovek(listZeny);
 		for (Object o : listZeny) {

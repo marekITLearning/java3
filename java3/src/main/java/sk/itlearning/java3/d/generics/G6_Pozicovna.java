@@ -44,9 +44,9 @@ public class G6_Pozicovna {
 		listAuto.add(new Auto("Audi"));
 		
 //		PozicovnaAut pa = new PozicovnaAut(listAuto);
+//		System.out.println(pa.dostupneNaVypozicanie);
 		
 		Pozicovna<Auto> pa = new Pozicovna<>(listAuto);
-		System.out.println(pa.dostupneNaVypozicanie);
 		
 		Auto pozicane = pa.pozicaj();
 		System.out.println(pozicane);
@@ -55,27 +55,12 @@ public class G6_Pozicovna {
 		pa.vrat(pozicane);
 		System.out.println(pa.dostupneNaVypozicanie);
 		
-		List<Saty> listSaty = new ArrayList<Saty>();
-		listSaty.add(new Saty("Svadobne"));
-		listSaty.add(new Saty("Sportove"));
+		List<Saty> listSaty = new ArrayList<>();
+		listSaty.add(new Saty("svadobne"));
 		
 		Pozicovna<Saty> ps = new Pozicovna<>(listSaty);
-		System.out.println(ps.dostupneNaVypozicanie);
-		
-		Saty pozicaneSaty = ps.pozicaj();
-		System.out.println(pozicaneSaty);
-		System.out.println(ps.dostupneNaVypozicanie);
-		
-		List<Integer> zi = new ArrayList<>();
-		zi.add(10);
-		zi.add(20);
-		
-		Pozicovna<Integer> pi = new Pozicovna<>(zi);
-		System.out.println(pi.dostupneNaVypozicanie);
-		pi.vrat(30);
-		System.out.println(pi.dostupneNaVypozicanie);
-		
-		
+		Saty s = ps.pozicaj();
+		System.out.println(s);
 	}
 
 }

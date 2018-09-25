@@ -6,8 +6,9 @@ public class VypocetA implements Vypocet {
 	public int vypocitaj() {
 		return 10;
 	}
-
-	public VypocetA(Integer x) {
-
+	
+	public VypocetA (String s) {
+		
 	}
+	
 }

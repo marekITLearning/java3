@@ -30,25 +30,19 @@ public class CatchDeclare {
 
 	public static void main(String[] args) {
 
-		BigDecimal a = new BigDecimal(10);
-
-		try {
-			BigDecimal b = a.divide(new BigDecimal(0));
-		} catch (ArithmeticException e) {
-			System.out.println(e.getLocalizedMessage());
-		}
+//		BigDecimal a = new BigDecimal(10);
+//
+//		BigDecimal b = a.divide(new BigDecimal(0));
 		
 		CustomBigDecimal c = new CustomBigDecimal(10.0);
 		
 		try {
 			c.divide(new CustomBigDecimal(0.0));
 		} catch (DivisionByZeroException e) {
-			System.out.println(e.getLocalizedMessage());
+			System.out.println(e.getMessage());
 		}
-		
-		
-		
-		
+
+		System.out.println("idem dalej");
 	}
 
 }

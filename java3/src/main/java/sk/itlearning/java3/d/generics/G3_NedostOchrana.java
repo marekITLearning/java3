@@ -7,7 +7,7 @@ import sk.itlearning.java3.m.zakaznik.Firma;
 import sk.itlearning.java3.m.zakaznik.Obcan;
 import sk.itlearning.java3.m.zakaznik.Zakaznik;
 
-public class G2_NedostOchrana {
+public class G3_NedostOchrana {
 
 	public static void main(String[] args) {
 
@@ -22,7 +22,7 @@ public class G2_NedostOchrana {
 		// cez nezabezpecenu triedu nam lahko moze do zabezpeceneho
 		// pola vklznut nespravny typ
 
-		Adder a = new Adder();
+		G0_Adder a = new G0_Adder();
 		a.add(zList);
 
 		for (Zakaznik i : zList) {

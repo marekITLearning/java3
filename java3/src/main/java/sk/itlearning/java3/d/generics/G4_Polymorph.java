@@ -23,7 +23,7 @@ public class G4_Polymorph {
 		addClovek(muzi);
 		readLudia(listMuzi);
 		readSerializable(new ArrayList<Clovek>());
-		addSuperType(new ArrayList<Clovek>());
+		addSuperType(listLudia);
 		readAnyType(new ArrayList<Character>());
 		readAnyType2(new ArrayList<Object>());
 	}
@@ -49,7 +49,7 @@ public class G4_Polymorph {
 		// do nothing
 	}
 
-	private static void addSuperType(ArrayList<? super Muz> list) {
+	private static void addSuperType(List<? super Muz> list) {
 		list.add(new Muz());
 //		list.add(new Zena());
 		// metoda akceptuje genericky typ Muz a akykolvek objekt nadtriedy ku triede Muz
