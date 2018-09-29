@@ -21,12 +21,6 @@ public class FlowBlocked {
 		Date stop2 = new Date();
 		seconds = (stop2.getTime() - start.getTime()) / 1000;
 		System.out.println("Pocet suborov: " + p2.nrFiles + " vyhladane za (sekund): " + seconds);
-
-		Pocty p3 = new Pocty();
-		spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p3);
-		Date stop3 = new Date();
-		seconds = (stop3.getTime() - start.getTime()) / 1000;
-		System.out.println("Pocet suborov: " + p3.nrFiles + " vyhladane za (sekund): " + seconds);
 	}
 
 	private static class Pocty {

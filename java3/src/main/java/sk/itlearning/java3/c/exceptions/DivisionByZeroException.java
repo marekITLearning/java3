@@ -7,9 +7,4 @@ public class DivisionByZeroException extends Exception {
 		return "Delenie nulou.";
 	}
 	
-	@Override
-	public String getLocalizedMessage() {
-		return "Delenie nulou.";
-	}
-	
 }

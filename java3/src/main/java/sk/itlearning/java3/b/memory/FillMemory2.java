@@ -1,6 +1,6 @@
 package sk.itlearning.java3.b.memory;
 
-public class FillMemory {
+public class FillMemory2 {
 
 	public static void main(String[] args) {
 	
@@ -11,6 +11,14 @@ public class FillMemory {
 		
 		System.out.println(array);
 		
+		for (int i = 0; i < array.length; i++) {
+			array[i] = new String("0123456789abcdef");
+		}
+		
+		String s1 = "abc";
+		String s2 = "abc";
+		System.out.println(s1 == s2);
+
 	}
 	
 }

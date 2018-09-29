@@ -50,8 +50,6 @@ public class RegexpSearch {
 		// insert into Table (a, b, c, d) values (1, 1, "a", "");
 		// replace (\d+,) with \1 \1 (\1 = stored found value)
 		
-		
-		
 	}
 
 }

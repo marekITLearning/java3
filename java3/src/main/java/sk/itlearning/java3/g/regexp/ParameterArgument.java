@@ -2,7 +2,6 @@ package sk.itlearning.java3.g.regexp;
 
 public class ParameterArgument {
 
-
 	public static void main(String[] args) {
 		// pri volani metody odovzavam metode ARGUMENTY
 		System.out.println(vypocitaj(10, 20));
@@ -12,4 +11,5 @@ public class ParameterArgument {
 	private static int vypocitaj(int a, int b) {
 		return a + b;
 	}
+	
 }

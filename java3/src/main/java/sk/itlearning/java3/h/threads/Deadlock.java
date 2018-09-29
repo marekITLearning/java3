@@ -1,6 +1,7 @@
 package sk.itlearning.java3.h.threads;
 
 public class Deadlock {
+	
 	static class Friend {
 		private final String name;
 
@@ -32,18 +33,11 @@ public class Deadlock {
 			}
 		}).start();
 		
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		new Thread(new Runnable() {
 			public void run() {
 				gaston.pozdrav(alphonse);
 			}
 		}).start();
-		
 	}
+	
 }

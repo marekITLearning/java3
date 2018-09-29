@@ -1,11 +1,25 @@
 package sk.itlearning.java3.c.exceptions;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.math.BigDecimal;
 
 public class CatchDeclare {
+
+	public static void main(String[] args) {
+
+		BigDecimal a = new BigDecimal(10);
+		
+		BigDecimal b = a.divide(new BigDecimal(0));
+
+		CustomBigDecimal c = new CustomBigDecimal(10.0);
+
+		try {
+			c.divide(new CustomBigDecimal(0.0));
+		} catch (DivisionByZeroException e) {
+			System.out.println(e.getMessage());
+		}
+
+		System.out.println("... a program pokracuje dalej");
+	}
 
 	private static class CustomBigDecimal extends BigDecimal {
 
@@ -26,23 +40,6 @@ public class CatchDeclare {
 			}
 			return ret;
 		}
-	}
-
-	public static void main(String[] args) {
-
-//		BigDecimal a = new BigDecimal(10);
-//
-//		BigDecimal b = a.divide(new BigDecimal(0));
-		
-		CustomBigDecimal c = new CustomBigDecimal(10.0);
-		
-		try {
-			c.divide(new CustomBigDecimal(0.0));
-		} catch (DivisionByZeroException e) {
-			System.out.println(e.getMessage());
-		}
-
-		System.out.println("idem dalej");
 	}
 
 }

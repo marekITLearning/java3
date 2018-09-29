@@ -3,9 +3,9 @@ package sk.itlearning.java3.d.generics;
 import java.util.ArrayList;
 import java.util.List;
 
-import sk.itlearning.java3.m.zakaznik.Firma;
-import sk.itlearning.java3.m.zakaznik.Obcan;
-import sk.itlearning.java3.m.zakaznik.Zakaznik;
+import sk.itlearning.java1.h.zakaznik.Firma;
+import sk.itlearning.java1.h.zakaznik.Obcan;
+import sk.itlearning.java1.h.zakaznik.Zakaznik;
 
 public class G3_NedostOchrana {
 
@@ -14,9 +14,6 @@ public class G3_NedostOchrana {
 		List<Zakaznik> zList = new ArrayList<Zakaznik>();
 		zList.add(new Obcan("770727/1234", "Johhny"));
 		zList.add(new Firma("23456789", "Ooogle"));
-
-		// toto teraz nebude fungovat, list je typovo chraneny, obmedzeny na Zakaznik
-//		 zList.add("string value");
 
 		// Genericitou zabezpecena typova ochrana ale nie je 100%-na,
 		// cez nezabezpecenu triedu nam lahko moze do zabezpeceneho
@@ -28,6 +25,7 @@ public class G3_NedostOchrana {
 		for (Zakaznik i : zList) {
 			System.out.println(i.getId());
 		}
+		
 	}
 
 }

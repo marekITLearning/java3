@@ -20,8 +20,8 @@ public class Main {
 			
 			try {
 				Class<Vypocet> clazz = (Class<Vypocet>) Class.forName(conf);
-				Constructor<Vypocet> constructor = clazz.getConstructor(String.class);
-				Vypocet v = constructor.newInstance("xy");
+				Constructor<Vypocet> constructor = clazz.getConstructor(int.class);
+				Vypocet v = constructor.newInstance(50);
 				Method m = clazz.getMethod("vypocitaj");
 				System.out.println(m.invoke(v));
 			} catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {

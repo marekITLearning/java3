@@ -7,7 +7,6 @@ import java.util.Date;
 public class FlowNotBlockedRunnable {
 
 	public static void main(String[] args) throws IOException {
-
 		Date start = new Date();
 		for (int i = 0; i < 1000; i++) {
 			RunnableSpocitajSubory r = new RunnableSpocitajSubory();
@@ -16,7 +15,6 @@ public class FlowNotBlockedRunnable {
 			r.setP(p);
 			new Thread(r).start();
 		}
-
 	}
 
 	private static class RunnableSpocitajSubory implements Runnable {
