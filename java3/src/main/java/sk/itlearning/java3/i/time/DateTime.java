@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
@@ -34,28 +33,41 @@ public class DateTime {
 	 */
 
 	public static void main(String[] args) {
+		
 		LocalDate today = LocalDate.now();
-		LocalDate payday = today.with(TemporalAdjusters.lastDayOfMonth()).minusDays(2);
-		LocalDate tomorrow = today.plus(1, ChronoUnit.DAYS);
-
+		System.out.println(today);
+		
 		LocalDateTime today2 = LocalDateTime.now();
 		System.out.println(today2);
+		
+		System.out.println();
+		
+		LocalDate payday = today.with(TemporalAdjusters.lastDayOfMonth());
+		System.out.println(payday);
+		
+		LocalDate tomorrow = today.plus(1, ChronoUnit.DAYS);
+		System.out.println(tomorrow);
+
+		System.out.println();
+		
 		LocalDateTime yesterday = today2.minus(60*60*24, ChronoUnit.SECONDS);
 		System.out.println(yesterday);
 
-		LocalDate dateOfBirth = LocalDate.of(2012, Month.MAY, 14);
+		System.out.println();
+		
+		LocalDate dateOfBirth = LocalDate.of(1999, Month.MAY, 14);
 		LocalDate firstBirthday = dateOfBirth.plusYears(1);
+		System.out.println(firstBirthday);
+		
+		System.out.println();
 
 		LocalDateTime db = LocalDateTime.now(ZoneId.of("Europe/Bratislava"));
 		LocalDateTime dn = LocalDateTime.now(ZoneId.of("America/New_York"));
-
 		System.out.println(db);
 		System.out.println(dn);
 
-		System.out.println(today);
-		System.out.println(tomorrow);
-		System.out.println(yesterday);
-
+		System.out.println();
+		
 		System.out.println(today.format(DateTimeFormatter.ofPattern("E - ('e':e) : d MMMM yyyy", new Locale("sk", "SK"))));
 
 		LocalTime lt = LocalTime.now(ZoneId.of("Europe/Bratislava"));

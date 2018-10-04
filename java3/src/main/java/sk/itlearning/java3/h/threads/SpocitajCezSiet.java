@@ -19,7 +19,7 @@ public class SpocitajCezSiet {
 
 		System.out.println(nrFiles);
 
-		System.out.println(Duration.between(start, LocalDateTime.now()).getSeconds());
+		System.out.println(Duration.between(start, LocalDateTime.now()).getNano() / 1_000_000_000.0);
 
 	}
 

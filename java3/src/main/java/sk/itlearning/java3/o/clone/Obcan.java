@@ -2,8 +2,6 @@ package sk.itlearning.java3.o.clone;
 
 import java.math.BigDecimal;
 
-import sk.itlearning.java1.h.zakaznik.Zakaznik;
-
 public class Obcan implements Zakaznik {
 
 	private String rodneCislo;

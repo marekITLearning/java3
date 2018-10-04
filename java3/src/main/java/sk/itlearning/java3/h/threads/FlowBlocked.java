@@ -10,38 +10,19 @@ public class FlowBlocked {
 
 		Date start = new Date();
 
-		Pocty p1 = new Pocty();
-		spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p1);
-		Date stop1 = new Date();
-		long seconds = (stop1.getTime() - start.getTime()) / 1000;
-		System.out.println("Pocet suborov: " + p1.nrFiles + " vyhladane za (sekund): " + seconds);
+		MutableLong p1 = new MutableLong();
+		new SpocitajSubory().spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p1);
+		Date stop = new Date();
+		double seconds = (stop.getTime() - start.getTime()) / 1000.0;
+		System.out.println("Pocet suborov: " + p1.value + " vyhladane za (sekund): " + seconds);
 
-		Pocty p2 = new Pocty();
-		spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p2);
-		Date stop2 = new Date();
-		seconds = (stop2.getTime() - start.getTime()) / 1000;
-		System.out.println("Pocet suborov: " + p2.nrFiles + " vyhladane za (sekund): " + seconds);
-	}
-
-	private static class Pocty {
-		long nrFiles;
-	}
-
-	private static void spocitajSubory(File vAdresari, Pocty p) {
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		if (!vAdresari.isDirectory()) {
-			p.nrFiles++;
-			return; // subory mozu byt vyhladavane len v adresari
-		}
-		if (vAdresari.listFiles() != null && vAdresari.listFiles().length > 0) {
-			for (File x : vAdresari.listFiles()) {
-				spocitajSubory(x, p);
-			}
-		}
+		
+		MutableLong p2 = new MutableLong();
+		new SpocitajSubory().spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p2);
+		stop = new Date();
+		seconds = (stop.getTime() - start.getTime()) / 1000.0;
+		System.out.println("Pocet suborov: " + p2.value + " vyhladane za (sekund): " + seconds);
+		
 	}
 
 }

@@ -6,45 +6,34 @@ import java.util.Date;
 
 public class FlowNotBlocked {
 
-	private static class SpocitajSubory implements Runnable {
+	public static void main(String[] args) throws IOException {
+		
 		final Date start = new Date();
-		@Override
-		public void run() {
-			Pocty p1 = new Pocty();
-			spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p1);
-			Date stop1 = new Date();
-			long seconds = (stop1.getTime() - start.getTime()) / 1000;
-			System.out.println("Pocet suborov: " + p1.nrFiles + " vyhladane za (sekund): " + seconds);
-		}
+		
+		new Thread(new SpocitajRunnable(start)).start();
+		new Thread(new SpocitajRunnable(start)).start();
+		new Thread(new SpocitajRunnable(start)).start();
+		new Thread(new SpocitajRunnable(start)).start();
+		new Thread(new SpocitajRunnable(start)).start();
+		
 	}
 	
-	public static void main(String[] args) throws IOException {
-		new Thread(new SpocitajSubory()).start();
-		new Thread(new SpocitajSubory()).start();
-		new Thread(new SpocitajSubory()).start();
-		new Thread(new SpocitajSubory()).start();
-		new Thread(new SpocitajSubory()).start();
-	}
-
-	private static class Pocty {
-		long nrFiles;
-	}
-
-	private static void spocitajSubory(File vAdresari, Pocty p) {
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+	private static class SpocitajRunnable implements Runnable {
+		Date start;
+		
+		public SpocitajRunnable(Date start) {
+			this.start = start;
 		}
-		if (!vAdresari.isDirectory()) {
-			p.nrFiles++;
-			return; // subory mozu byt vyhladavane len v adresari
+		
+		@Override
+		public void run() {
+			MutableLong p = new MutableLong();
+			new SpocitajSubory().spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p);
+			Date stop1 = new Date();
+			double seconds = (stop1.getTime() - start.getTime()) / 1000.0;
+			System.out.println("Pocet suborov: " + p.value + " vyhladane za (sekund): " + seconds);
 		}
-		if (vAdresari.listFiles() != null && vAdresari.listFiles().length > 0) {
-			for (File x : vAdresari.listFiles()) {
-				spocitajSubory(x, p);
-			}
-		}
+		
 	}
 
 }

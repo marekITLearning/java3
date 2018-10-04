@@ -1,7 +1,6 @@
 package sk.itlearning.java3.i.time;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -36,9 +35,8 @@ public class DatePreJava8 {
 
 		c.set(Calendar.HOUR, 0);
 		c.set(Calendar.MINUTE, 0);
-		System.out.println(c.getTime());
 		
-		Date d1 = Date.from(Instant.ofEpochMilli(c.getTimeInMillis()));
+		System.out.println(c.getTime());
 
 	}
 

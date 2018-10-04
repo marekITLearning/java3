@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Obcan o = new Obcan("1234", "Jozo");
+		Obcan o = new Obcan("11", "Jozo");
 		o.setKredit(new BigDecimal(100));
 
 		System.out.println(o.getKredit());
