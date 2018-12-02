@@ -12,7 +12,8 @@ public class FillMemory2 {
 		System.out.println(array);
 		
 		for (int i = 0; i < array.length; i++) {
-			array[i] = new String("0123456789abcdef");
+			//array[i] = new String("0123456789abcdef");
+			array[i] = "0123456789abcdef";
 		}
 		
 		String s1 = "abc";

@@ -4,12 +4,15 @@ public class StringBuffer {
 
 	public static void main(String[] args) {
 		
-		String knihaString = "";
+		// fullname lebo conflict s nazvom triedy
+		java.lang.StringBuffer kniha1 = new java.lang.StringBuffer();
 		
-		String item = "a";
-		for (int i = 0; i < 1_000_000; i++) {
-			item += "a";
-			knihaString = item;
+		//radsej StringBuffer, lebo je Thread safe
+		
+		// StringBuilder kniha2 = new StringBuilder();
+		
+		for (int i = 0; i < 100_000; i++) {
+			kniha1.append(String.valueOf(i));
 		}
 		
 		System.out.println(Runtime.getRuntime().freeMemory() / 1024 / 1024);
