@@ -94,14 +94,14 @@ public class CsvReader<B, E> {
 		List<E> list = new ArrayList<>();
 		for (int i = 0; i < params.getBatchSize(); i++) {
 			try {
-				CsvEntity<E> csvBean = (CsvEntity<E>) beanClass.newInstance();
+				CsvEntity<E> csvBean = (CsvEntity<E>) beanClass.getConstructor().newInstance();
 				E entity = getNext(csvBean);
 				if (entity != null) {
 					list.add(entity);
 				} else {
 					break;
 				}
-			} catch (InstantiationException | IllegalAccessException e) {
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 				throw new RuntimeException(e);
 			}
 		}
