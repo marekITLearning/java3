@@ -11,7 +11,7 @@ public class FlowNotBlockedRunnable {
 		
 		LocalDateTime start = LocalDateTime.now();
 		
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000; i++) {
 			SpocitajRunnable r = new SpocitajRunnable(start);
 			new Thread(r).start();
 		}
@@ -29,7 +29,8 @@ public class FlowNotBlockedRunnable {
 		public void run() {
 			MutableLong p = new MutableLong();
 			new SpocitajSubory().spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p);
-			System.out.println(Duration.between(start, LocalDateTime.now()).getNano() / 1_000_000_000.0);
+			Duration dr = Duration.between(start, LocalDateTime.now());
+			System.out.println(dr.getSeconds() + dr.getNano() / 1_000_000_000.0);
 		}
 		
 	}

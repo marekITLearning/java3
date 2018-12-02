@@ -13,13 +13,14 @@ public class SpocitajCezSiet {
 
 		LocalDateTime start = LocalDateTime.now();
 
-		spocitajSubory(new File("L:"));
+		spocitajSubory(new File("P:"));
 		
 		while(Thread.activeCount() > 1);
 
 		System.out.println(nrFiles);
 
-		System.out.println(Duration.between(start, LocalDateTime.now()).getNano() / 1_000_000_000.0);
+		Duration dr = Duration.between(start, LocalDateTime.now());
+		System.out.println(dr.getSeconds() + dr.getNano() / 1_000_000_000.0);
 
 	}
 

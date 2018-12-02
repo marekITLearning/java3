@@ -5,11 +5,11 @@ public class ThreadMethodSyncing {
 	static class Counter {
 	    private int value = 0;
 
-	    public void increment() {
+	    public synchronized void increment() {
 	    	value++;
 	    }
 
-	    public void decrement() {
+	    public synchronized void decrement() {
 	    	value--;
 	    }
 	}
@@ -21,7 +21,7 @@ public class ThreadMethodSyncing {
 		Runnable r1 = new Runnable() {
 			@Override
 			public void run() {
-				for (int i = 0; i < 1000; i++) {
+				for (int i = 0; i < 1000000; i++) {
 					c.increment();
 				}
 			}
@@ -30,7 +30,7 @@ public class ThreadMethodSyncing {
 		Runnable r2 = new Runnable() {
 			@Override
 			public void run() {
-				for (int i = 0; i < 1000; i++) {
+				for (int i = 0; i < 1000000; i++) {
 					c.decrement();
 				}
 			}
@@ -39,9 +39,12 @@ public class ThreadMethodSyncing {
 		new Thread(r1).start();
 		new Thread(r2).start();
 		
+//		while (Thread.activeCount() > 1);
+		
 		try {
-			Thread.sleep(100);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
