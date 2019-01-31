@@ -2,9 +2,10 @@ package sk.itlearning.java3.n.csv.test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Scanner;
 
 import org.apache.commons.io.IOUtils;
 
@@ -27,17 +28,16 @@ public class MainJson {
 		
 		System.out.println(theJsonFirma);
 		
-		Firma f = new Gson().fromJson(theJsonFirma, Firma.class);
+		Firma[] f = new Gson().fromJson(theJsonFirma, Firma[].class);
 		
-		System.out.println(f);
+		Arrays.asList(f).forEach(e -> System.out.println(e));
 		
-		
-		is = MainJson.class.getResourceAsStream("firmy.json");
-		
-		Firma f2 = new Gson().fromJson(new InputStreamReader(is), Firma.class);
-		
-		System.out.println(f2);
-
+//		is = MainJson.class.getResourceAsStream("firmy.json");
+//		
+//		Firma f2 = new Gson().fromJson(new InputStreamReader(is), Firma.class);
+//		
+//		System.out.println(f2);
+//		
 	}
 
 }
