@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
@@ -74,7 +75,9 @@ public class DateTime {
 		System.out.println(lt);
 		
 		// Konverzia LocalDate alebo LocalDateTime na Date
-		Date d = Date.from(today.atStartOfDay(ZoneId.of("Europe/Bratislava")).toInstant());
+		Date d = Date.from(today.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		
+		Date d1 = Date.from(db.toInstant(ZoneOffset.UTC));
 		
 	}
 
