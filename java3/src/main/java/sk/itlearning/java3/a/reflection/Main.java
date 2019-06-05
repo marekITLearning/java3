@@ -13,7 +13,7 @@ public class Main {
 		while (true) {
 			
 			try {
-				Thread.currentThread().sleep(1000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
