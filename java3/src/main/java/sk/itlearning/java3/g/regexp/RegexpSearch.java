@@ -19,7 +19,7 @@ public class RegexpSearch {
 		
 		Pattern p = Pattern.compile("1[0-9]{3}/\\d{6}"); // the expression / pattern - vzor, ktory budeme hladat v texte
 
-		String text = "text s telefonnymi cislami, prve (0940/506070) v spravnom tvare, "
+		String text = "text s telefonnymi cislami, prve (1940/506077) v spravnom tvare, "
 				+ "druhe (1940/506070) v nespravnom tvare (teda sa nenajde podla zadaneho vzoru)";
 
 		Matcher m = p.matcher(text); // the source - zdrojovy text
@@ -28,7 +28,7 @@ public class RegexpSearch {
 
 		while (m.find()) {
 			pocetVyskytov++;
-			System.out.println("najdeny vyskyt na pozicii " + m.start() + " " + text.substring(m.start()));
+			System.out.println("najdeny vyskyt na pozicii " + m.start() + " " + text.substring(m.start(), m.end()));
 		}
 
 		System.out.println(); // prazdny riadok do konzoly
@@ -39,9 +39,9 @@ public class RegexpSearch {
 		System.out.println(); // prazdny riadok do konzoly
 		System.out.println(text.matches(".*0[0-9]{3}/[0-9]{6}.*"));
 		
-		String mail = "0abcdef@yahoo.com";
+		String mail = "a@yahoo.com";
 		
-		System.out.println(mail.matches("^[\\w,_,-,.]*@[\\w]*\\.com$"));
+		System.out.println(mail.matches("^[\\w,_,-,.]+@[\\w]+\\.com$"));
 		
 		// "abc874"
 		
