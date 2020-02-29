@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
@@ -46,7 +45,7 @@ public class DateTime {
 		LocalDate payday = today.with(TemporalAdjusters.lastDayOfMonth());
 		System.out.println(payday);
 		
-		LocalDate tomorrow = today.plus(1, ChronoUnit.DAYS);
+		LocalDate tomorrow = today.plusDays(1);
 		System.out.println(tomorrow);
 
 		System.out.println();
@@ -69,15 +68,17 @@ public class DateTime {
 
 		System.out.println();
 		
-		System.out.println(today.format(DateTimeFormatter.ofPattern("E - ('e':e) : d MMMM yyyy", new Locale("sk", "SK"))));
+		System.out.println(today.format(DateTimeFormatter.ofPattern("E - ('e':e) : d MMMM yyyy", Locale.FRANCE)));
 
 		LocalTime lt = LocalTime.now(ZoneId.of("Europe/Bratislava"));
 		System.out.println(lt);
 		
 		// Konverzia LocalDate alebo LocalDateTime na Date
-		Date d = Date.from(today.atStartOfDay(ZoneId.systemDefault()).toInstant());
+		Date d = Date.from(today.atStartOfDay(ZoneId.of("Europe/Bratislava")).toInstant());
 		
-		Date d1 = Date.from(db.toInstant(ZoneOffset.UTC));
+//		Date d2 = Date.from(today2.toInstant(ZoneId.of("Europe/Bratislava").getRules().getOffset(new Date().toInstant())));
+		
+		LocalDateTime ldt = LocalDateTime.ofInstant(new Date().toInstant(), ZoneId.of("Europe/Bratislava"));
 		
 	}
 

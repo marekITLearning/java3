@@ -21,6 +21,7 @@ public class DatePreJava8 {
 		// extrakcia jednotlivych casti datumu
 		Calendar c = new GregorianCalendar();
 		c.setTime(d);
+
 		System.out.println("Aktualny cas je: "
 			+ c.get(Calendar.HOUR)
 			+ ":"
@@ -28,13 +29,9 @@ public class DatePreJava8 {
 			+ " week: "
 			+ c.get(Calendar.DAY_OF_WEEK));
 
-		System.out.println(d.getTime());
-
-		c.add(Calendar.HOUR, 22);
-		System.out.println(c.getTime());
-
 		c.set(Calendar.HOUR, 0);
 		c.set(Calendar.MINUTE, 0);
+		c.set(Calendar.SECOND, 0);
 		
 		System.out.println(c.getTime());
 

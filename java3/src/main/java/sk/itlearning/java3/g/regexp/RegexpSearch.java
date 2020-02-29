@@ -15,7 +15,7 @@ public class RegexpSearch {
 		 */
 		
 		String s = "nejakom texte nieco nachadza";
-		s.indexOf("nieco");
+		System.out.println(s.indexOf("nieco"));
 		
 		Pattern p = Pattern.compile("1[0-9]{3}/\\d{6}"); // the expression / pattern - vzor, ktory budeme hladat v texte
 
@@ -39,9 +39,9 @@ public class RegexpSearch {
 		System.out.println(); // prazdny riadok do konzoly
 		System.out.println(text.matches(".*0[0-9]{3}/[0-9]{6}.*"));
 		
-		String mail = "a@yahoo.com";
+		String mail = "dfasdf@yahoo.com";
 		
-		System.out.println(mail.matches("^[\\w,_,-,.]+@[\\w]+\\.com$"));
+		System.out.println(mail.matches("[\\w,_,-,.]+@[\\w]+\\.com"));
 		
 		// "abc874"
 		
