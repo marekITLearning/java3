@@ -2,15 +2,13 @@ package sk.itlearning.java3.a.reflection;
 
 public class VypocetA implements Vypocet {
 
-	private int result;
-	
 	@Override
 	public int vypocitaj() {
-		return result;
+		return 20;
 	}
 	
-	public VypocetA (int value) {
-		result = value;
+	public VypocetA(int a) {
+		super();
 	}
-	
+
 }

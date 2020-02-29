@@ -6,39 +6,33 @@ public class CatchDeclare {
 
 	public static void main(String[] args) {
 
-		BigDecimal a = new BigDecimal(10);
-		
-		BigDecimal b = a.divide(new BigDecimal(0));
+//		BigDecimal a = new BigDecimal(10);
+//		
+//		BigDecimal b = a.divide(new BigDecimal(0));
 
 		CustomBigDecimal c = new CustomBigDecimal(10.0);
 
 		try {
 			c.divide(new CustomBigDecimal(0.0));
 		} catch (DivisionByZeroException e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
-
+		
 		System.out.println("... a program pokracuje dalej");
 	}
 
 	private static class CustomBigDecimal extends BigDecimal {
 
-		private static final long serialVersionUID = 1L;
-
-		public CustomBigDecimal(Double val) {
-			super(val);
+		public CustomBigDecimal(double d) {
+			super(d);
 		}
 
 		public BigDecimal divide(CustomBigDecimal divisor) throws DivisionByZeroException {
-			BigDecimal ret = null;
-			try {
-				ret = super.divide(divisor);
-			} catch (ArithmeticException e) {
-				if (divisor.equals(new BigDecimal(0))) {
-					throw new DivisionByZeroException();
-				}
+			if (divisor.doubleValue() == 0.0) {
+				throw new DivisionByZeroException();
+			} else {
+				return super.divide(divisor);
 			}
-			return ret;
 		}
 	}
 

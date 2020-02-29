@@ -22,9 +22,7 @@ public class G4_Polymorph {
 	public static void main(String[] args) {
 
 		Muz[] muzi = new Muz[]{new Muz(), new Muz()};
-		Zena[] zeny = {new Zena(), new Zena()};
-		Clovek[] mz = {new Zena(), new Muz()};
-		
+
 		List<Muz> listMuzi = new ArrayList<Muz>(Arrays.asList(muzi));
 
 		List<Clovek> listLudia = new ArrayList<Clovek>();
@@ -45,7 +43,7 @@ public class G4_Polymorph {
 		readLudia(listMuzi);
 		readSerializable(new ArrayList<Clovek>());
 		addSuperType(listLudia);
-		readAnyType(new ArrayList<Character>());
+		readAnyType(new ArrayList<String>());
 		readAnyType2(new ArrayList<Object>());
 	}
 
@@ -56,7 +54,7 @@ public class G4_Polymorph {
 
 	private static void addClovek(Clovek[] list) {
 		list[0] = new Muz();
-//		list[1] = new Zena(); //ArrayStoreException
+		list[1] = new Zena(); //ArrayStoreException
 	}
 
 	private static void readLudia(List<? extends Clovek> list) {
