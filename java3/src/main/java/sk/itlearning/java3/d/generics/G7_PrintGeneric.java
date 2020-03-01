@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import sk.itlearning.java3.o.clone.Obcan;
+import sk.itlearning.java3.k.zakaznik.Obcan;
 
-public class G7_PrintMap {
+public class G7_PrintGeneric {
 
 	public static void main(String[] args) {
 		
@@ -17,17 +17,16 @@ public class G7_PrintMap {
 		Map<Integer, BigDecimal> mapaCisel = new HashMap<>();
 		mapaCisel.put(1, BigDecimal.valueOf(10));
 		mapaCisel.put(2, BigDecimal.valueOf(20));
-		
+
 		printAnyMap(mapaObcanov);
 		
 		printAnyMap(mapaCisel);
 		
 	}
-	
-	public static <K, V> void printAnyMap(Map<K, V> map) {
-		for (K key : map.keySet()) {
-			V result = map.get(key);
-			System.out.println(result);
+
+	public static <K, V> void printAnyMap(Map<K, V> mapa) {
+		for (K key : mapa.keySet()) {
+			System.out.println(mapa.get(key));
 		}
 	}
 	

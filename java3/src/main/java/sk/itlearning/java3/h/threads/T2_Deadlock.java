@@ -13,12 +13,12 @@ public class T2_Deadlock {
 			return this.name;
 		}
 
-		public synchronized void pozdrav(Friend bower) {
+		public void pozdrav(Friend bower) {
 			System.out.format("%s: %s" + "  has bowed to me!%n", this.name, bower.getName());
 			bower.odzdrav(this);
 		}
 
-		public synchronized void odzdrav(Friend bower) {
+		public void odzdrav(Friend bower) {
 			System.out.format("%s: %s" + " has bowed back to me!%n", this.name, bower.getName());
 		}
 	}

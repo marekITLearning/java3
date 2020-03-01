@@ -47,6 +47,7 @@ public class G4_Polymorph {
 		readAnyType2(new ArrayList<Object>());
 	}
 
+	@SuppressWarnings("unused")
 	private static void addClovek(List<Clovek> list) {
 		list.add(new Muz());
 		list.add(new Zena());

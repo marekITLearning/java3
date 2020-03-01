@@ -3,12 +3,13 @@ package sk.itlearning.java3.d.generics;
 import java.util.ArrayList;
 import java.util.List;
 
-import sk.itlearning.java3.o.clone.Firma;
-import sk.itlearning.java3.o.clone.Obcan;
-import sk.itlearning.java3.o.clone.Zakaznik;
+import sk.itlearning.java3.k.zakaznik.Firma;
+import sk.itlearning.java3.k.zakaznik.Obcan;
+import sk.itlearning.java3.k.zakaznik.Zakaznik;
 
 public class G2_List {
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 
 		// List interface vo verzii Java 1.4 nemal obmedzeny typ,

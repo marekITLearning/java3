@@ -4,9 +4,10 @@ import java.util.List;
 
 class G0_Adder {
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void add(List list) {
-		list.add(new Integer(50));
-		list.add(new Boolean(true));
+		list.add(50);
+		list.add(true);
 	}
 	
 }

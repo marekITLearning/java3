@@ -75,10 +75,10 @@ public class DateTime {
 		
 		// Konverzia LocalDate alebo LocalDateTime na Date
 		Date d = Date.from(today.atStartOfDay(ZoneId.of("Europe/Bratislava")).toInstant());
-		
-//		Date d2 = Date.from(today2.toInstant(ZoneId.of("Europe/Bratislava").getRules().getOffset(new Date().toInstant())));
+		System.out.println(d);
 		
 		LocalDateTime ldt = LocalDateTime.ofInstant(new Date().toInstant(), ZoneId.of("Europe/Bratislava"));
+		System.out.println(ldt);
 		
 	}
 
