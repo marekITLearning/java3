@@ -10,9 +10,9 @@
 	<packaging>pom</packaging>
 
 	<name>workspace parent</name>
-
-  <modules>
-    <module>java3</module>
-  </modules>
+	
+	<modules>
+		<module>java3</module>
+	</modules>
 
 </project>
