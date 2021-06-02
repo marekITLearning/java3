@@ -4,15 +4,20 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>sk.itlearning.java3</groupId>
-	<artifactId>workspace</artifactId>
+	<artifactId>java3_parent</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
-	<name>workspace parent</name>
-	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
+
 	<modules>
-		<module>java3</module>
+		<module>java3a</module>
+		<module>java3b</module>
 	</modules>
 
 </project>
