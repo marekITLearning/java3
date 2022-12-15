@@ -7,6 +7,7 @@ public class Firma {
 	private Integer id;
 	private String name;
 	private BigDecimal trzby;
+	private String adresa;
 
 	public Integer getId() {
 		return id;
@@ -35,5 +36,13 @@ public class Firma {
 	@Override
 	public String toString() {
 		return "Id: " + id + " Nazov: " + name + " Trzby: " + trzby;
+	}
+
+	public String getAdresa() {
+		return adresa;
+	}
+
+	public void setAdresa(String adresa) {
+		this.adresa = adresa;
 	}
 }

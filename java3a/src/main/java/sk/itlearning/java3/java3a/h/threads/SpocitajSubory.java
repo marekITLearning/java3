@@ -21,8 +21,25 @@ class SpocitajSubory {
 		}
 	}
 
-	void spocitajSuboryNotify(File vAdresari, AtomicLong p) {
-
+	void spocitajSuboryNotify(File vAdresari, AtomicLong pocet) {
+		try {
+			Thread.sleep(5);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if (vAdresari.isFile()) {
+			pocet.incrementAndGet();
+		}
+		if (pocet.get() >= 200) {
+			synchronized (this) {
+				this.notifyAll();
+			}
+		}
+		if (vAdresari.listFiles() != null) {
+			for (File f : vAdresari.listFiles()) {
+				spocitajSuboryNotify(f, pocet);
+			}
+		}
 	}
 
 }
