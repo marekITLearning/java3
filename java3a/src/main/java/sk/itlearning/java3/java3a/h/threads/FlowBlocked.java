@@ -2,27 +2,33 @@ package sk.itlearning.java3.java3a.h.threads;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.concurrent.atomic.AtomicLong;
+
+import sk.itlearning.java3.java3a.i.time.DateUtil;
 
 public class FlowBlocked {
 
 	public static void main(String[] args) throws IOException {
 
-		Date start = new Date();
+		LocalDateTime start = LocalDateTime.now();
 
-		MutableLong p1 = new MutableLong();
+		AtomicLong p1 = new AtomicLong();
 		new SpocitajSubory().spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p1);
-		Date stop = new Date();
-		double seconds = (stop.getTime() - start.getTime()) / 1000.0;
-		System.out.println("Pocet suborov: " + p1.value + " vyhladane za (sekund): " + seconds);
+		LocalDateTime stop = LocalDateTime.now();
 
-		
-		MutableLong p2 = new MutableLong();
-		new SpocitajSubory().spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p2);
-		stop = new Date();
-		seconds = (stop.getTime() - start.getTime()) / 1000.0;
-		System.out.println("Pocet suborov: " + p2.value + " vyhladane za (sekund): " + seconds);
-		
+		System.out.println(p1.get());
+		System.out.println(DateUtil.getDurationFormatted(start, stop));
+
+		for (int i = 0; i < 10; i++) {
+			AtomicLong p2 = new AtomicLong();
+			new SpocitajSubory().spocitajSubory(new File("C:\\Windows\\System32\\drivers"), p2);
+			System.out.println(p2.get());
+		}
+
+		stop = LocalDateTime.now();
+		System.out.println(DateUtil.getDurationFormatted(start, stop));
+
 	}
 
 }
